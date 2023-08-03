@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{19755166-C214-48DF-BEE7-CDF30C2D55A8}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="vcl\WatchMyMoney.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="web\WatchMyMoneyWeb.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="WatchMyMoney">
+        <MSBuild Projects="vcl\WatchMyMoney.dproj"/>
+    </Target>
+    <Target Name="WatchMyMoney:Clean">
+        <MSBuild Projects="vcl\WatchMyMoney.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="WatchMyMoney:Make">
+        <MSBuild Projects="vcl\WatchMyMoney.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="WatchMyMoneyWeb">
+        <MSBuild Projects="web\WatchMyMoneyWeb.dproj"/>
+    </Target>
+    <Target Name="WatchMyMoneyWeb:Clean">
+        <MSBuild Projects="web\WatchMyMoneyWeb.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="WatchMyMoneyWeb:Make">
+        <MSBuild Projects="web\WatchMyMoneyWeb.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="WatchMyMoney;WatchMyMoneyWeb"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="WatchMyMoney:Clean;WatchMyMoneyWeb:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="WatchMyMoney:Make;WatchMyMoneyWeb:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
