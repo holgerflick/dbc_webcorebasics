@@ -87,8 +87,6 @@ begin
 
     LLastValue := LValue;
   end;
-
-
 end;
 
 function TFrmMain.GetAmountForNPeriods(ACapital: Double; APercent: Double;
