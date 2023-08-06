@@ -81,9 +81,9 @@ begin
   begin
     var LValue := GetAmountForNPeriods(ACapital, APercent, i);
     Grid.Cells[0,i] := i.ToString;
-    Grid.Cells[1,i] := Format( '%m', [LLastValue] );
-    Grid.Cells[2,i] := Format( '%m', [LValue - LLastValue]);
-    Grid.Cells[3,i] := Format( '%m', [LValue]);
+    Grid.Cells[1,i] := Format( '$ %.2n', [LLastValue] );
+    Grid.Cells[2,i] := Format( '$ %.2n', [LValue - LLastValue]);
+    Grid.Cells[3,i] := Format( '$ %.2n', [LValue]);
 
     LLastValue := LValue;
   end;
